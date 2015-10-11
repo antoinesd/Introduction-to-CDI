@@ -1,0 +1,105 @@
+[.intro]
+== Qualifiers
+
+Solving ambiguous cases with
+
+[.topic]
+== Two Service implementations…
+
+
+[source, subs="verbatim,quotes"]
+----
+public interface [highlight]*HelloService* {
+    public String hello();
+}
+
+public class FrenchHelloService implements [highlight]*HelloService* {
+    public String hello() {
+        return "Bonjour tout le monde!";
+    }
+}
+
+public class EnglishHelloService implements [highlight]*HelloService* {
+    public String hello() {
+        return "Hello World!";
+    }
+}
+----
+
+[.topic]
+== …Need Qualifiers…
+
+[source, subs="verbatim,quotes"]
+----
+[highlight]*@Qualifier*
+@Retention(RUNTIME)
+@Target({FIELD, TYPE, METHOD, PARAMETER})
+public @interface French {
+}
+
+
+[highlight]*@Qualifier*
+@Retention(RUNTIME)
+@Target({FIELD, TYPE, METHOD, PARAMETER})
+public @interface English {
+}
+----
+
+[.topic]
+== …to be distinguished...
+
+[source, subs="verbatim,quotes"]
+----
+[highlight]*@French*
+public class FrenchHelloService implements HelloService {
+    public String hello() {
+        return "Bonjour tout le monde!";
+    }
+}
+
+[highlight]*@English*
+public class EnglishHelloService implements HelloService {
+    public String hello() {
+        return "Hello World!";
+    }
+}
+----
+
+[.topic]
+== …at injection points.
+
+[source, subs="verbatim,quotes"]
+----
+public class MyBean {
+    @Inject
+    [highlight]*@French*
+    HelloService serviceFr;
+
+    @Inject
+    [highlight]*@English*
+    HelloService serviceEn;
+    
+}
+----
+
+[.topic]
+== Qualifiers can have members
+
+[source, subs="verbatim,quotes"]
+----
+*@Qualifier*
+@Retention(RUNTIME)
+@Target({FIELD, TYPE, METHOD, PARAMETER}) 
+public @interface Language {
+
+    LangChoice value();
+    
+    [highlight]*@Nonbinding* //<1>
+    String description() default "";
+
+    public enum LangChoice { 
+        FRENCH, ENGLISH
+    }
+}
+----
+<1> member `description` is not used when comparing 2 instances of `@Language`

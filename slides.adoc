@@ -1,0 +1,94 @@
+= Intoduction to _CDI_ 1.2
+Antoine Sabot-Durand
+:description: Intrdocution to CDI 1.2
+:copyright: CC BY-SA 4.0
+:backend: dzslides
+:sectids!:
+:experimental:
+:toc2:
+:sectanchors:
+:idprefix:
+:idseparator: -
+:icons: font
+:source-highlighter: highlightjs
+:source-language: java
+:language: no-highlight
+:macros-on: subs="macros"
+:caption-off: caption=""
+:title-off: title="", caption=""
+:dzslides-aspect: 16-9
+:imagesdir: images
+:next-label: pass:quotes,attributes[*Next* [icon:caret-right[]]
+:dzslides-style: asciidoctor
+:dzslides-highlight: github
+:dzslides-transition: fade
+:dzslides-fonts: family=Neuton:400,700,800,400italic|Cedarville+Cursive
+:hide-uri-scheme:
+
+
+
+
+[.topic]
+== Me, Myself and I
+//TODO: add a picture
+[.smaller]
+====
+* icon:coffee[] Antoine Sabot-Durand
+* icon:linux[] Red Hat
+* icon:code[] CDI spec lead
+* icon:twitter[] @antoine_sd
+* icon:rss[] next-presso.com
+* icon:github[] github.com/antoinesd
+====
+
+[.topic]
+== Agenda
+
+[.smaller]
+====
+* icon:info-circle[] Meet CDI
+* icon:info-circle[] Basic DI
+* icon:info-circle[] Qualifiers to solve ambiguities
+* icon:info-circle[] Producers
+* icon:info-circle[] Bean Type resolution
+// * icon:info-circle[] Legacy Code
+//* icon:info-circle[] Metrics CDI
+//* icon:info-circle[] CDI Quizz
+//* icon:info-circle[] Camel CDI
+
+//TIP: Slides available at http://astefanutti.github.io/further-cdi
+====
+
+
+include::parts/intro.adoc[]
+
+include::parts/inject.adoc[]
+
+include::parts/qualifiers.adoc[]
+
+include::parts/producers.adoc[]
+
+include::parts/resolution.adoc[]
+
+
+[.topic.intro]
+== Conclusion
+
+
+[.topic.source]
+== References
+
+NOTE: CDI Specification - http://cdi-spec.org
+
+NOTE: Metrics CDI sources - https://github.com/astefanutti/metrics-cdi
+
+NOTE: Slides generated with _Asciidoctor_, _PlantUML_ and _DZSlides_ backend
+
+NOTE: Original slide template - _Dan Allen_ & _Sarah White_
+
+
+[.topic.ending, hrole="name"]
+== Antoine Sabot-Durand
+
+[.footer]
+icon:twitter[] @antoine_sd

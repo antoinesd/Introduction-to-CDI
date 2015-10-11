@@ -1,0 +1,56 @@
+[.intro]
+== Bean Resolution
+
+
+[.topic]
+== Types of a bean
+
+TIP: A bean could be assigned to all “injection point” whose type belongs to its types set
+
+TIP: Bean types set contains its type, all its implementing interfaces and all its ancestors including `Object`.
+
+TIP: Bean types can be restricted by using `@Typed` annotation (`Object` is always in the set)
+
+
+[.topic]
+== Types of a bean
+
+TIP: A bean could be assigned to all “injection point” whose type belongs to its types set
+
+TIP: Bean types set contains its type, all its implementing interfaces and all its ancestors including `Object`.
+
+TIP: Bean types can be restricted by using `@Typed` annotation (`Object` is always in the set)
+
+[.topic]
+== Types Set Example
+
+[source, subs="verbatim,quotes", role="smaller"]
+----
+public class HelloService {
+     //Types set : HelloService, Object 
+}
+
+  public class FrenchHelloService extends GenericService implements HelloService {
+     //Types set : FrenchHelloService, GenericService, HelloService, Object
+ }
+
+  @Typed({HelloService.class,GenericService.class})
+ public class FrenchHelloService extends GenericService implements HelloService {
+     //Types set : GenericService, HelloService, Object
+ }
+----
+
+
+[.topic]
+== No Type Erasure in CDI
+
+[source, subs="verbatim,quotes"]
+----
+public class MyBean {
+
+    @Inject Service<User> userService;
+
+    @Inject Service<Staff> staffService;
+    
+}
+----

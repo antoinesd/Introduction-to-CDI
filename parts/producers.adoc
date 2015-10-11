@@ -1,0 +1,126 @@
+[.intro]
+== Producers
+
+[.topic]
+== What is a producer?
+
+====
+* icon:cogs[] A way to *declare a bean*...
+====
+====
+* icon:cogs[] ...from a a *field* or *method*...
+====
+====
+* icon:cogs[] ...for a *non CDI* class.
+====
+
+
+[.topic]
+== Declaring a Produced bean
+
+[source, subs="verbatim,quotes"]
+----
+public class ProducingBean { //<1>
+
+  [highlight]#@Produces# //<2>
+  private List<Integer> mapInt = new ArrayList<>();
+
+  [highlight]#@Produces# //<2>
+  public List<String> listStrProducer() { <3>
+     return new ArrayList<String>();
+  }
+}
+----
+<1> Producers should be declared in a Bean class
+<2> It's a field or a method annotated with `@Produces` (static methods supported)
+<3> value of field or method returned value is the bean instance
+
+[.topic]
+== Producers are an other kind of bean
+
+TIP: they can have qualifiers like any other bean
+
+TIP: producer method (or field) is called to create the bean instance
+
+[source, subs="verbatim,quotes"]
+----
+public class MyBean {
+
+    [highlight]#@Inject#
+    private List<String> strListBean;
+
+    [highlight]#@Inject#
+    public MyBean(List<Integer> initValues) {
+       ...
+    }
+}
+----
+
+[.topic]
+== Disposers are Producer's housekeeping
+
+TIP: Disposers can free resources when produced bean is destroyed
+
+[source, subs="verbatim,quotes"]
+----
+public class ProducingBean {
+
+    *@Produces*
+    public MyNonCDIClass myProducer() {
+      return new MyNonCdiClass();
+    }
+
+    public void releaseMyInstance([highlight]*@Disposes* MyNonCdiClass inst) { //<1>
+      inst.clean();
+    }
+}
+----
+<1> Will be called at the bean instance end of life
+
+[NOTE.speaker]
+--
+See them as `@Predestroy` for Producers
+--
+
+
+[.topic]
+== Producer methods can have parameters
+
+TIP: Parameters will be injected by the container at instantiation time
+
+TIP: They should have matching beans
+
+[source, subs="verbatim,quotes"]
+----
+public class ProducingBean {
+
+  *@Produces*
+  public MyNonCDIClass listStrProducer([highlight]#MyBean bean#) { //<1>
+     ...
+  }
+}
+----
+<1> The container resolve `MyBean` and pass it to the producer when an instance of the bean is requested
+
+[.topic]
+== Accessing Injection Point metadata
+
+TIP: The container can provide metadata about the Injection Point
+
+[source, subs="verbatim,quotes"]
+----
+public class ProducingBean {
+
+  *@Produces*
+  public Logger produceLog([highlight]#InjectionPoint injectionPoint#) { //<1>
+     return Logger.getLogger(injectionPoint.getMember()
+                  .getDeclaringClass().getName());
+  }
+}
+----
+<1> `InjectionPoint` is CDI SPI class providing info about the `@Inject` side. 
+
+[NOTE.speaker]
+--
+`InjectionPoint` can also be injected in managed bean
+--
