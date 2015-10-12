@@ -7,6 +7,8 @@ It is build with Asciidoctor and DZSildes backend.
 == Build environment
 
 Ruby is pre-requisite to build.
+Version 1.9.3 or better (2.2.X recommended) is supported.
+To install Ruby check https://www.ruby-lang.org/en/documentation/installation/[Ruby website]
 
 Install http://bundler.io/[Bundler]:
 ----
@@ -18,14 +20,9 @@ Then run:
 bundle install
 ----
 
-Install http://www.graphviz.org/[Graphviz] and have the `dot` executable in the path.
+//Install http://www.graphviz.org/[Graphviz] and have the `dot` executable in the path.
 
 == Build instructions
-
-To generate the HTML presentation, run the following command:
-----
-asciidoctor -r asciidoctor-diagram -T asciidoctor-backends/slim -a data-uri -a linkcss! slides.adoc
-----
 
 Note that the Git submodules must first be initialized by running:
 ----
@@ -34,6 +31,11 @@ git submodule init
 Followed with:
 ----
 git submodule update
+----
+
+To generate the HTML presentation, run the following command:
+----
+asciidoctor -r asciidoctor-diagram -T backends/slim -a data-uri -a linkcss! slides.adoc
 ----
 
 == Use Guard and LiveReload
