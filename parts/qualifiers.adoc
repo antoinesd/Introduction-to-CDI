@@ -89,7 +89,7 @@ public class MyBean {
 }
 ----
 
-TIP: see the qualifier as an extra type information
+TIP: Qualifiers are _types_ enhancing injection, yet keeping it _strong typed_
 
 [.topic]
 == Qualifiers can have members
@@ -116,7 +116,7 @@ public @interface Language {
 [.source]
 == Binding members limit the number of annotations to add to your code
 
-[source, subs="verbatim,quotes", role="smallest"]
+[source, subs="verbatim,quotes", role="smaller"]
 ----
 [highlight]*@Language(FRENCH)*
 public class FrenchHelloService implements HelloService {
@@ -142,3 +142,102 @@ public class MyBean {
     HelloService serviceEn;
 }
 ----
+
+[.topic]
+== Multiple qualifiers
+
+TIP: A bean can have *multiple* qualifier
+
+[source, subs="verbatim,quotes"]
+----
+[highlight]*@Language(FRENCH)* [highlight]*@Console* //<1>
+public class FrenchHelloService implements HelloService {
+    public String hello() { 
+        return "Bonjour tout le monde!";
+    }
+}
+
+public class MyBean {
+    *@Inject*
+    [highlight]*@Language(FRENCH)* [highlight]*@Console*
+    HelloService serviceFr;
+}
+----
+<1> `@Console` is a qualifier
+
+[.topic]
+== Multiple qualifiers
+
+TIP: Injection point can have a *non empty* subset of the bean's qualifiers
+
+[source, subs="verbatim,quotes"]
+----
+[highlight]*@Language(FRENCH)* [highlight]*@Console*
+public class FrenchHelloService implements HelloService {
+    public String hello() { 
+        return "Bonjour tout le monde!";
+    }
+}
+
+public class MyBean {    
+    *@Inject*
+    [highlight]*@Console*
+    HelloService serviceFr;
+}
+----
+
+
+[.topic]
+== Multiple qualifiers
+
+TIP: Injection point *can't have a super set* of bean's qualifier
+
+[source, subs="verbatim,quotes"]
+----
+[highlight]*@Language(FRENCH)* [highlight]*@Console*
+public class FrenchHelloService implements HelloService {
+    public String hello() { 
+        return "Bonjour tout le monde!";
+    }
+}
+
+public class MyBean { 
+    *@Inject*
+    [highlight]*@Language(FRENCH)* [highlight]*@Console* [highlight]*@Language(CANADIAN)* //<1>
+    HelloService serviceFr;
+}
+----
+<1> Unsatisfied injection point: deployment fails
+
+[.topic]
+== Built-in qualifiers
+
+TIP: `@Named` set bean name for weak typed environment (EL, Javascript)
+
+TIP: `@Default` added to beans without qualifier or having only `@Named`
+
+TIP: `@Any` added to all beans for programmatic lookup and decorators
+
+CAUTION: The container is responsible to enhance beans with these qualifiers
+
+
+[.source]
+== Examples
+
+[source, subs="verbatim,quotes"]
+----
+public class MyBean { ... } //<1>
+    
+[highlight]*@Named*
+public class MyBean2 { ... } //<2>
+
+[highlight]*@Named* [highlight]*@Language(FRENCH)* //<3>
+public class MyBean2 {
+    *@Inject* //<4>
+    MyBean2 bean;
+}
+----
+<1> this bean has `@Default` and `@Any` qualifiers
+<2> this bean has `@Default`, `@Named` and `@Any` qualifiers
+<3> this bean has `@Language(FRENCH)`, `@Named` and `@Any` qualifiers
+<4> this injection point has `@Default` qualifier
