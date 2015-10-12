@@ -3,31 +3,37 @@
 
 Solving ambiguous cases with
 
-[.topic]
-== Two Service implementations…
+[.source]
+== When an injection point resolves to multiple beans…
 
-
-[source, subs="verbatim,quotes"]
+[source, subs="verbatim,quotes", role="smallest"]
 ----
+public class MyBean {
+    *@Inject*
+    [highlight]*HelloService* service;
+}
+
 public interface [highlight]*HelloService* {
     public String hello();
 }
 
 public class FrenchHelloService implements [highlight]*HelloService* {
-    public String hello() {
-        return "Bonjour tout le monde!";
-    }
+    public String hello() { 
+        return "Bonjour tout le monde!";
+    }
 }
 
 public class EnglishHelloService implements [highlight]*HelloService* {
     public String hello() {
-        return "Hello World!";
+        return "Hello World!";
     }
 }
 ----
 
+CAUTION: deployment fails with an `Ambiguous dependencies` error.
+
 [.topic]
-== …Need Qualifiers…
+== The solution is to create Qualifiers…
 
 [source, subs="verbatim,quotes"]
 ----
@@ -37,7 +43,6 @@ public class EnglishHelloService implements [highlight]*HelloService* {
 public @interface French {
 }
 
-
 [highlight]*@Qualifier*
 @Retention(RUNTIME)
 @Target({FIELD, TYPE, METHOD, PARAMETER})
@@ -45,8 +50,10 @@ public @interface English {
 }
 ----
 
+TIP: Qualifiers are annotations annotated with `@Qualifier`
+
 [.topic]
-== …to be distinguished...
+== to qualify beans sharing the same type...
 
 [source, subs="verbatim,quotes"]
 ----
@@ -66,7 +73,7 @@ public class EnglishHelloService implements HelloService {
 ----
 
 [.topic]
-== …at injection points.
+== and distinguish them at injection points.
 
 [source, subs="verbatim,quotes"]
 ----
@@ -81,6 +88,8 @@ public class MyBean {
     
 }
 ----
+
+TIP: see the qualifier as an extra type information
 
 [.topic]
 == Qualifiers can have members
@@ -102,4 +111,34 @@ public @interface Language {
     }
 }
 ----
-<1> member `description` is not used when comparing 2 instances of `@Language`
+<1> `@Nonbinding` member's value isn't used in bean resolution mechanism
+
+[.source]
+== Binding members limit the number of annotations to add to your code
+
+[source, subs="verbatim,quotes", role="smallest"]
+----
+[highlight]*@Language(FRENCH)*
+public class FrenchHelloService implements HelloService {
+    public String hello() { 
+        return "Bonjour tout le monde!";
+    }
+}
+
+[highlight]*@Language(ENGLISH)*
+public class EnglishHelloService implements HelloService {
+    public String hello() {
+        return "Hello World!";
+    }
+}
+
+public class MyBean {
+    @Inject
+    [highlight]*@Language(value = FRENCH, description = "ici on parle français")*
+    HelloService serviceFr;
+
+    @Inject
+    [highlight]*@Language(value = ENGLISH, description = "english spoken here")*
+    HelloService serviceEn;
+}
+----
