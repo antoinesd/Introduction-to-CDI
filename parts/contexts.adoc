@@ -33,7 +33,7 @@ TIP: CDI provides the following _built-in_ scopes (and associated contexts):
 
 CAUTION: Instance is _created_ at _first request_ and _destroyed_ with its _bound context_
 
-TIP: _CDI SPI_ allows third party create their _custom contexts_
+TIP: _CDI SPI_ allows third party to create their _custom contexts_
 
 [.source]
 == Examples
