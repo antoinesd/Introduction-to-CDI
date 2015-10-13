@@ -41,7 +41,7 @@ public class ProducingBean { //<1>
 ----
 <1> Producers should be declared in a Bean class
 <2> It's a field or a method annotated with `@Produces` (static methods supported)
-<3> Producers can have qualifier
+<3> Producers can have qualifiers
 <4> value of field or method returned value is the bean instance
 
 [.topic]
@@ -110,7 +110,7 @@ public class ProducingBean {
   }
 }
 ----
-<1> The container resolve `MyBean` and pass it to the producer when an instance of the bean is requested
+<1> The container resolves `MyBean` and passes it to the producer when an instance of the bean is requested
 
 [.topic]
 == Accessing Injection Point metadata
