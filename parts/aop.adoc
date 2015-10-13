@@ -55,13 +55,13 @@ public @interface Loggable {}
 public class LogInterceptor {
   [highlight]*@AroundInvoke* //<4>
   public Object log(InvocationContext ic) throws Exception {
-    System.out.println("Entering " + ic.getMethod().getName());
-        try {
-            return ic.proceed();
-        } finally {
-            System.out.println("Exiting " + ic.getMethod().getName());
-        }
-    }
+      System.out.println("Entering " + ic.getMethod().getName());
+      try {
+          return ic.proceed();
+      } finally {
+          System.out.println("Exiting " + ic.getMethod().getName());
+      }
+  }
 }
 ----
 <1> We make the class an interceptor (`@Interceptor` comes from Interceptor spec)
