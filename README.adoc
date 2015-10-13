@@ -1,6 +1,8 @@
 = Introduction to CDI
 
-This project contains the slides for the Introduction to CDI 1.2 talk.
+The actual presentation is here: http://j.mp/introcdi
+
+This project contains the slides for the Introduction to CDI talk.
 It is build with Asciidoctor and DZSildes backend.
 
 
