@@ -1,7 +1,7 @@
 [.intro]
 == Typesafe Resolution
 
-Putting the right a bean tat the right place
+Putting the right a bean at the right place
 
 
 [.topic]
