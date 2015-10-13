@@ -146,7 +146,7 @@ public class MyBean {
 [.topic]
 == Multiple qualifiers
 
-TIP: A bean can have *multiple* qualifier
+TIP: A bean can have *multiple* qualifiers
 
 [source, subs="verbatim,quotes"]
 ----
@@ -218,9 +218,9 @@ TIP: `@Default` added to beans without qualifier or having only `@Named`
 
 TIP: `@Any` added to all beans for programmatic lookup and decorators
 
-TIP: `@Initialized` to qualify event when a context is started
+TIP: `@Initialized` to qualify events when a context is started
 
-TIP: `@Destroyed` to qualify event when a context is destroyed
+TIP: `@Destroyed` to qualify events when a context is destroyed
 
 
 [.source]
