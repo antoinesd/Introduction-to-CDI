@@ -12,7 +12,7 @@ TIP: *Interceptors* are *bound* to any bean or *bean method*
 
 TIP: *Decorators* are *business oriented*: change the behaviour of a bean
 
-TIP: *Decorator* are *bound* to a *bean type*
+TIP: *Decorators* are *bound* to a *bean type*
 
 [.topic]
 == Interceptors
@@ -120,9 +120,9 @@ public [highlight]*abstract* class HelloDecorator [highlight]*implements HelloSe
     }
 }
 ----
-<1> Declares that the class is decorator
-<2> Activates and give a priority for the decorator (could be done via `beans.xml` file)
-<3> Decorator can be abstract and should share the same interface than decorated beans
+<1> Declares that the class is a decorator
+<2> Activates and gives a priority to the decorator (could be done via `beans.xml` file)
+<3> Decorators can be abstract and should share the same interface than decorated beans
 <4> Decorated bean is annotated with `@Delegate` (other beans could be injected in decorator)
 <5> Decorating method is called instead of decorated bean method. Delegate can be used in it.
 
