@@ -9,7 +9,7 @@ image::cdi_icon.png[role="pull-right", width="335"]
 [.smallest]
 ====
 * icon:file-text[] A Java EE spec.
-* icon:code-fork[] Released under ASL2
+* icon:code-fork[] ASL2 (even TCK)
 * icon:rocket[] Launched in Java EE 6
 * icon:history[] 2 releases since launch
 * icon:thumb-tack[] 1.2 is last (Java EE 7)

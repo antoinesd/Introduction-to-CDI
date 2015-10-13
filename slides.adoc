@@ -1,6 +1,6 @@
-= Intoduction to _CDI_ 1.2
+= Intoduction to _CDI_
 Antoine Sabot-Durand
-:description: Intrdocution to CDI 1.2
+:description: Intrdocution to CDI
 :copyright: CC BY-SA 4.0
 :backend: dzslides
 :sectids!:
@@ -44,23 +44,22 @@ Antoine Sabot-Durand
 [.topic]
 == Agenda
 
-[.smallest]
-====
-* icon:info-circle[] Meet CDI
-* icon:info-circle[] Basic DI
-* icon:info-circle[] Solving ambiguities with qualifiers
-* icon:info-circle[] Producers
-* icon:info-circle[] Bean resolution
-* icon:info-circle[] Programmatic Lookup
-* icon:info-circle[] Contexts
-* icon:info-circle[] Events
-// * icon:info-circle[] Legacy Code
-//* icon:info-circle[] Metrics CDI
-//* icon:info-circle[] CDI Quizz
-//* icon:info-circle[] Camel CDI
+TIP: _Slides_ here http://cdi-spec.org/introduction
 
-//TIP: Slides available at http://astefanutti.github.io/further-cdi
+[.fartoosmall]
 ====
+* icon:clock-o[] Meet CDI
+* icon:clock-o[] Basic DI
+* icon:clock-o[] Qualifiers
+* icon:clock-o[] Producers
+* icon:clock-o[] Bean resolution
+* icon:clock-o[] Programmatic Lookup
+* icon:clock-o[] Contexts
+* icon:clock-o[] Events
+* icon:clock-o[] Interceptors and Decorators
+* icon:clock-o[] Conclusion
+====
+
 
 
 include::parts/intro.adoc[]
@@ -79,18 +78,33 @@ include::parts/contexts.adoc[]
 
 include::parts/events.adoc[]
 
+include::parts/aop.adoc[]
 
 
-[.topic.intro]
+
+[.intro]
 == Conclusion
 
 
-[.topic.source]
+[.topic]
+== Features not covered in this talk
+
+CAUTION: *Stereotypes* creating annotation gathering multiple annotations
+
+CAUTION: *Alternatives* replace a bean for tests or specific environments
+
+CAUTION: *Specialization* bean overriding
+
+CAUTION: *Transactional events* binding events to specific transaction phase
+
+CAUTION: Check the spec on http://cdi-spec.org
+
+[.topic]
 == References
 
-NOTE: CDI Specification - http://cdi-spec.org
+NOTE: _Slides_ are accessible here http://cdi-spec.org/introduction
 
-NOTE: Metrics CDI sources - https://github.com/astefanutti/metrics-cdi
+NOTE: _Slides source_ https://github.com/antoinesd/Introduction-to-CDI
 
 NOTE: Slides generated with _Asciidoctor_ and _DZSlides_ backend
 
