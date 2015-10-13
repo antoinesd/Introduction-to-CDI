@@ -82,9 +82,10 @@ public class MyBean {
     Instance<HelloService> services;
 
     public void displayHello() {
-            display(
-                services.select(new [highlight]*AnnotationLiteral()<French> {}*).get()); //<1>
-        }
+        display(
+            services.select(
+                new [highlight]*AnnotationLiteral()<French> {}*).get()); //<1>
+    }
 }
 ----
 <1> `select()` also accepts a type.
