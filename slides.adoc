@@ -52,6 +52,7 @@ Antoine Sabot-Durand
 * icon:info-circle[] Producers
 * icon:info-circle[] Bean resolution
 * icon:info-circle[] Programmatic Lookup
+* icon:info-circle[] Contexts
 // * icon:info-circle[] Legacy Code
 //* icon:info-circle[] Metrics CDI
 //* icon:info-circle[] CDI Quizz
@@ -72,6 +73,9 @@ include::parts/producers.adoc[]
 include::parts/resolution.adoc[]
 
 include::parts/programmatic-lookup.adoc[]
+
+include::parts/contexts.adoc[]
+
 
 
 [.topic.intro]
