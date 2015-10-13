@@ -1,4 +1,4 @@
-= Intoduction to _CDI_
+= Introduction to _CDI_
 Antoine Sabot-Durand
 :description: Intrdocution to CDI
 :license: CC BY-SA 4.0
