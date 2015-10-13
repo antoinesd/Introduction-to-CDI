@@ -18,6 +18,10 @@ Antoine Sabot-Durand
 :title-off: title="", caption=""
 :dzslides-aspect: 16-9
 :imagesdir: images
+:slides-url: http://j.mp/introcdi
+:slides-src: https://github.com/antoinesd/Introduction-to-CDI
+:spec-url: https://cdi-spec.org
+:twitter_handle: antoine_sd
 :next-label: pass:quotes,attributes[*Next* [icon:caret-right[]]
 :dzslides-style: asciidoctor
 :dzslides-highlight: github
@@ -44,7 +48,7 @@ Antoine Sabot-Durand
 [.topic]
 == Agenda
 
-TIP: _Slides_ here http://cdi-spec.org/introduction
+TIP: _Slides_ here {slides-url}
 
 [.fartoosmall]
 ====
@@ -97,14 +101,14 @@ CAUTION: *Specialization* bean overriding
 
 CAUTION: *Transactional events* binding events to specific transaction phase
 
-CAUTION: Check the spec on http://cdi-spec.org
+CAUTION: Check the spec on {spec-url}
 
 [.topic]
 == References
 
-NOTE: _Slides_ are accessible here http://cdi-spec.org/introduction
+NOTE: _Slides_ are accessible here {slides-url}
 
-NOTE: _Slides source_ https://github.com/antoinesd/Introduction-to-CDI
+NOTE: _Slides source_ {slides-src}
 
 NOTE: Slides generated with _Asciidoctor_ and _DZSlides_ backend
 
@@ -112,7 +116,7 @@ NOTE: Original slide template - _Dan Allen_ & _Sarah White_
 
 
 [.topic.ending, hrole="name"]
-== Antoine Sabot-Durand
+== {author}
 
 [.footer]
-icon:twitter[] @antoine_sd
+icon:twitter[] @{twitter_handle}
