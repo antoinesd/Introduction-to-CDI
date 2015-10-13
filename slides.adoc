@@ -44,7 +44,7 @@ Antoine Sabot-Durand
 [.topic]
 == Agenda
 
-[.smaller]
+[.smallest]
 ====
 * icon:info-circle[] Meet CDI
 * icon:info-circle[] Basic DI
@@ -53,6 +53,7 @@ Antoine Sabot-Durand
 * icon:info-circle[] Bean resolution
 * icon:info-circle[] Programmatic Lookup
 * icon:info-circle[] Contexts
+* icon:info-circle[] Events
 // * icon:info-circle[] Legacy Code
 //* icon:info-circle[] Metrics CDI
 //* icon:info-circle[] CDI Quizz
@@ -76,6 +77,8 @@ include::parts/programmatic-lookup.adoc[]
 
 include::parts/contexts.adoc[]
 
+include::parts/events.adoc[]
+
 
 
 [.topic.intro]
@@ -89,7 +92,7 @@ NOTE: CDI Specification - http://cdi-spec.org
 
 NOTE: Metrics CDI sources - https://github.com/astefanutti/metrics-cdi
 
-NOTE: Slides generated with _Asciidoctor_, _PlantUML_ and _DZSlides_ backend
+NOTE: Slides generated with _Asciidoctor_ and _DZSlides_ backend
 
 NOTE: Original slide template - _Dan Allen_ & _Sarah White_
 

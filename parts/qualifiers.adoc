@@ -218,7 +218,9 @@ TIP: `@Default` added to beans without qualifier or having only `@Named`
 
 TIP: `@Any` added to all beans for programmatic lookup and decorators
 
-CAUTION: The container is responsible to enhance beans with these qualifiers
+TIP: `@Initialized` to qualify event when a context is started
+
+TIP: `@Destroyed` to qualify event when a context is destroyed
 
 
 [.source]
