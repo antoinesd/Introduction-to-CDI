@@ -1,7 +1,8 @@
 = Intoduction to _CDI_
 Antoine Sabot-Durand
 :description: Intrdocution to CDI
-:copyright: CC BY-SA 4.0
+:license: CC BY-SA 4.0
+:license-url: https://creativecommons.org/licenses/by-sa/4.0/
 :backend: dzslides
 :sectids!:
 :experimental:
@@ -112,7 +113,9 @@ NOTE: _Slides source_ {slides-src}
 
 NOTE: Slides generated with _Asciidoctor_ and _DZSlides_ backend
 
-NOTE: Original slide template - _Dan Allen_ & _Sarah White_
+NOTE: Original slide template - _Dan Allen_ & _Sarah White
+
+NOTE: License of this doc: {license-url}[{license}]
 
 
 [.topic.ending, hrole="name"]
