@@ -4,7 +4,7 @@
 [.topic]
 == _Almost_ Everything is a bean
 
-TIP: During boot time, the container scans each class to check if it meet conditions to be a bean
+TIP: During boot time, the container scans each class to check if it meets the conditions to be a bean
 
 TIP: These conditions are very loose so, most _pojo_ classes are beans
 
@@ -25,7 +25,7 @@ public class HelloService { //<1>
 [.topic]
 == Injection in bean field
 
-TIP: A bean can inject other beans or be injected in other beans
+TIP: A bean can inject other beans or be injected into other beans
 
 [source, subs="verbatim,quotes"]
 ----
@@ -40,7 +40,7 @@ public class MyBean {
 }
 ----
 <1> `@Inject` annotation defines an _injection point_ (here a field)
-<2> The container look for the bean to inject by its _type_ (here `HelloService`)
+<2> The container looksa for the bean to inject by its _type_ (here `HelloService`)
 
 [.topic]
 == Injection in bean constructor
@@ -100,7 +100,7 @@ public class MyBean {
     public void bye() { ... }
 }
 ----
-<1> `@PostConstruct` is called after all injection are done
+<1> `@PostConstruct` is called after all injections are done
 <2> `@PreDestroy` is called before destroying the instance
 
 
