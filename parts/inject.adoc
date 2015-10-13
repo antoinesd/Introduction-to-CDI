@@ -14,7 +14,6 @@ public class HelloService { //<1>
     public String hello() {
         return "Hello World!";
     }
-
 }
 ----
 <1> `HelloService` is a concrete class with a default constructor, therefore it's a bean
@@ -136,6 +135,6 @@ TIP: If no bean is eligible for it, the injection point is _unsatisfied_
 
 TIP: If multiple beans are eligible for it, the injection point is _ambiguous_
 
-CAUTION: In both case, a `DeploymentException` is thrown by the container
+CAUTION: In both case a `DeploymentException` is thrown by the container
 
 
