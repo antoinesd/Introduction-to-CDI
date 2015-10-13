@@ -1,39 +1,48 @@
 [.intro]
 == Producers
+When you don't own your bean's class, use
 
 [.topic]
 == What is a producer?
 
+[.smaller]
 ====
 * icon:cogs[] A way to *declare a bean*...
 ====
+[.smaller]
 ====
-* icon:cogs[] ...from a a *field* or *method*...
+* icon:cogs[] ...from a *field* or a *method*...
 ====
+[.smaller]
 ====
-* icon:cogs[] ...for a *non CDI* class.
+* icon:cogs[] ...for a class you *don't own*...
+====
+[.smaller]
+====
+* icon:cogs[] ...or a *non CDI* class.
 ====
 
-
-[.topic]
-== Declaring a Produced bean
+[.source]
+== Declaring a Producer
 
 [source, subs="verbatim,quotes"]
 ----
 public class ProducingBean { //<1>
-
   [highlight]#@Produces# //<2>
   private List<Integer> mapInt = new ArrayList<>();
 
   [highlight]#@Produces# //<2>
-  public List<String> listStrProducer() { <3>
-     return new ArrayList<String>();
+  [highlight]#@French# //<3>
+  public List<String> FrenchListStrProducer() { //<4>
+     List<String> res = new ArrayList<>().add("bonjour");
+     return res;
   }
 }
 ----
 <1> Producers should be declared in a Bean class
 <2> It's a field or a method annotated with `@Produces` (static methods supported)
-<3> value of field or method returned value is the bean instance
+<3> Producers can have qualifier
+<4> value of field or method returned value is the bean instance
 
 [.topic]
 == Producers are an other kind of bean
@@ -47,7 +56,8 @@ TIP: producer method (or field) is called to create the bean instance
 public class MyBean {
 
     [highlight]#@Inject#
-    private List<String> strListBean;
+    [highlight]#@French#
+    private List<String> frenchListStrBean;
 
     [highlight]#@Inject#
     public MyBean(List<Integer> initValues) {
@@ -88,7 +98,7 @@ See them as `@Predestroy` for Producers
 
 TIP: Parameters will be injected by the container at instantiation time
 
-TIP: They should have matching beans
+TIP: They should have matching beans otherwise deployment fails
 
 [source, subs="verbatim,quotes"]
 ----
@@ -118,7 +128,7 @@ public class ProducingBean {
   }
 }
 ----
-<1> `InjectionPoint` is CDI SPI class providing info about the `@Inject` side. 
+<1> `InjectionPoint` is a *SPI* interface. The *container* can inject it to give info about the *injection point*
 
 [NOTE.speaker]
 --

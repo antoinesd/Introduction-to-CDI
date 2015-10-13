@@ -48,9 +48,10 @@ Antoine Sabot-Durand
 ====
 * icon:info-circle[] Meet CDI
 * icon:info-circle[] Basic DI
-* icon:info-circle[] Qualifiers to solve ambiguities
+* icon:info-circle[] Solving ambiguities with qualifiers
 * icon:info-circle[] Producers
-* icon:info-circle[] Bean Type resolution
+* icon:info-circle[] Bean resolution
+* icon:info-circle[] Programmatic Lookup
 // * icon:info-circle[] Legacy Code
 //* icon:info-circle[] Metrics CDI
 //* icon:info-circle[] CDI Quizz
@@ -69,6 +70,8 @@ include::parts/qualifiers.adoc[]
 include::parts/producers.adoc[]
 
 include::parts/resolution.adoc[]
+
+include::parts/programmatic-lookup.adoc[]
 
 
 [.topic.intro]

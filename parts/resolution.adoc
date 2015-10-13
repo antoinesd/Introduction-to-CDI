@@ -1,56 +1,69 @@
 [.intro]
-== Bean Resolution
+== Typesafe Resolution
+
+Puting the right a bean tat the right place
 
 
 [.topic]
-== Types of a bean
+== Bean Types
 
-TIP: A bean could be assigned to all “injection point” whose type belongs to its types set
+TIP: A bean has a set of types depending on its definition
 
-TIP: Bean types set contains its type, all its implementing interfaces and all its ancestors including `Object`.
+TIP: Bean types set for a managed bean contains the bean class, every superclass and all interfaces it implements directly or indirectly.
 
 TIP: Bean types can be restricted by using `@Typed` annotation (`Object` is always in the set)
 
 
 [.topic]
-== Types of a bean
-
-TIP: A bean could be assigned to all “injection point” whose type belongs to its types set
-
-TIP: Bean types set contains its type, all its implementing interfaces and all its ancestors including `Object`.
-
-TIP: Bean types can be restricted by using `@Typed` annotation (`Object` is always in the set)
-
-[.topic]
-== Types Set Example
+== Bean types Example
 
 [source, subs="verbatim,quotes", role="smaller"]
 ----
-public class HelloService {
-     //Types set : HelloService, Object 
+public interface HelloService extends Hello { ... }
+
+public class MyBean { //<1>
+    *@Produces*
+    public HelloService prodHelloService() { ... } //<2>
 }
 
-  public class FrenchHelloService extends GenericService implements HelloService {
-     //Types set : FrenchHelloService, GenericService, HelloService, Object
- }
+  public class FrHelloService extends GenericService<String> implements HelloService { ... } //<3>
 
-  @Typed({HelloService.class,GenericService.class})
- public class FrenchHelloService extends GenericService implements HelloService {
-     //Types set : GenericService, HelloService, Object
- }
+  [highlight]*@Typed({HelloService.class})*
+ public class FrHelloService extends GenericService<String> implements HelloService { ... } //<4>
 ----
-
+<1> class `MyBean` and `Object`
+<2> `HelloService`, `Hello` and `Object`
+<3> `FrHelloService`, `GenericService<String>`, `HelloService`, `Hello` and  `Object`
+<4> `HelloService` and  `Object`
 
 [.topic]
-== No Type Erasure in CDI
+== Parameterized types count
+
+TIP: Parameterized types information is kept (i.e. no type erasure)
 
 [source, subs="verbatim,quotes"]
 ----
 public class MyBean {
 
-    @Inject Service<User> userService;
+    *@Inject*
+    [highlight]#Service<User># userService;
 
-    @Inject Service<Staff> staffService;
-    
+    *@Inject*
+    [highlight]#Service<Staff># staffService;    
 }
 ----
+
+TIP: Injection points above can be satisfied without ambiguity
+
+[.topic]
+== Performing Typesafe Resolution
+
+TIP: When _resolving a bean_ to be injected to an _injection point_...
+
+TIP: ...Tte _container_ considers _bean type_ and _qualifiers_.
+
+TIP: If the bean has a _bean type_ that match _injection point type_...
+
+TIP: ...and the bean has all the _qualifiers_ of the injection point...
+
+TIP: ...the bean is _assignable_ to the _injection point_.
