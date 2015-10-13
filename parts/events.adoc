@@ -24,7 +24,7 @@ public class SecondBean {
 ----
 <1> `Event<T>` is injected at the firing side. `T` is the event payload type (here my `Post` class)
 <2> When needed, we fire the event with our instance of `T` (here the `Post` object to save)
-<3> At the consuming side, we define an observer for a given payload type with `@Observes` annotation.+
+<3> At the consuming side, we define an observer for a given payload type with `@Observes` annotation.
 If observed type match fired event type, the observer is called.
 
 [.source]
@@ -70,7 +70,7 @@ public class SecondBean {
 }
 ----
 
-CAUTION: observer must be defined in a bean
+CAUTION: Observer must be defined in a bean
 
 CAUTION: Observer resolution may trigger bean instance creation.
 
