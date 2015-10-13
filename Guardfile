@@ -4,7 +4,7 @@ require 'asciidoctor/cli'
 require 'asciidoctor-diagram'
 require 'tilt/asciidoc'
 
-invoker = Asciidoctor::Cli::Invoker.new(%W(-T backends/slim -a data-uri -a linkcss! slides.adoc))
+invoker = Asciidoctor::Cli::Invoker.new(%W(-T backends/slim slides.adoc))
 
 invoker.invoke!
 

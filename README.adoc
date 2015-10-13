@@ -5,12 +5,6 @@ The actual presentation is here: http://j.mp/introcdi
 This project contains the slides for the Introduction to CDI talk.
 It is build with Asciidoctor and DZSildes backend.
 
-== License
-
-This document is under CC BY-SA 4.0 license.
-
-You are free to share and adapt this work as long as you follow the https://creativecommons.org/licenses/by-sa/4.0/[license term].
-
 == Build environment
 
 Ruby is pre-requisite to build.
@@ -42,7 +36,7 @@ git submodule update
 
 To generate the HTML presentation, run the following command:
 ----
-asciidoctor -r asciidoctor-diagram -T backends/slim -a data-uri -a linkcss! slides.adoc
+asciidoctor -T backends/slim slides.adoc
 ----
 
 == Use Guard and LiveReload
@@ -65,4 +59,6 @@ Browse to the generated file you want to refresh and activate the LiveReload plu
 
 == License
 
-The content of this project is licensed under the http://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 license], and the underlying source code used for the examples is licensed under the http://opensource.org/licenses/mit-license.php[MIT license].
+The content of this project is licensed under the http://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 license].
+
+You are free to share and adapt this work as long as you follow the license term.
