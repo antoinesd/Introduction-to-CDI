@@ -14,7 +14,7 @@ public class MyBean {
 }
 
 public interface [highlight]*HelloService* {
-    public String hello();
+    String hello();
 }
 
 public class FrenchHelloService implements [highlight]*HelloService* {
@@ -59,6 +59,7 @@ TIP: Qualifiers are annotations annotated with `@Qualifier`
 ----
 [highlight]*@French*
 public class FrenchHelloService implements HelloService {
+    @Override
     public String hello() {
         return "Bonjour tout le monde!";
     }
@@ -66,6 +67,7 @@ public class FrenchHelloService implements HelloService {
 
 [highlight]*@English*
 public class EnglishHelloService implements HelloService {
+    @Override
     public String hello() {
         return "Hello World!";
     }
@@ -120,6 +122,7 @@ public @interface Language {
 ----
 [highlight]*@Language(FRENCH)*
 public class FrenchHelloService implements HelloService {
+    @Override
     public String hello() { 
         return "Bonjour tout le monde!";
     }
@@ -127,6 +130,7 @@ public class FrenchHelloService implements HelloService {
 
 [highlight]*@Language(ENGLISH)*
 public class EnglishHelloService implements HelloService {
+    @Override
     public String hello() {
         return "Hello World!";
     }
@@ -152,6 +156,7 @@ TIP: A bean can have *multiple* qualifiers
 ----
 [highlight]*@Language(FRENCH)* [highlight]*@Console* //<1>
 public class FrenchHelloService implements HelloService {
+    @Override
     public String hello() { 
         return "Bonjour tout le monde!";
     }
@@ -174,6 +179,7 @@ TIP: Injection point can have a *non empty* subset of the bean's qualifiers
 ----
 [highlight]*@Language(FRENCH)* [highlight]*@Console*
 public class FrenchHelloService implements HelloService {
+    @Override
     public String hello() { 
         return "Bonjour tout le monde!";
     }
@@ -196,6 +202,7 @@ TIP: Injection point *can't have a super set* of bean's qualifier
 ----
 [highlight]*@Language(FRENCH)* [highlight]*@Console*
 public class FrenchHelloService implements HelloService {
+    @Override
     public String hello() { 
         return "Bonjour tout le monde!";
     }
