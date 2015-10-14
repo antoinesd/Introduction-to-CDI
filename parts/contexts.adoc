@@ -55,7 +55,7 @@ public class ApplicationService {
 <1> Bean has default scope `@Dependent`, instances are created for each injection
 <2> Bean is `@RequestScoped`. Instance is created by request context and destroyed with request context
 <3> Bean is `@ApplicationScoped`. Instance is created by application context and will live during all application
-<4> No problem to inject bean from an other scope: CDI will provide the righ bean
+<4> No problem to inject bean from an other scope: CDI will provide the right bean
 
 [.source]
 == Good to know
