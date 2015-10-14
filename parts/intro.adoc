@@ -1,3 +1,4 @@
+
 [.intro]
 == Meet CDI
 
@@ -5,7 +6,7 @@ Contexts and Dependency Injection
 
 [.topic]
 == What is CDI?
-image::cdi_icon.png[role="pull-right", width="335"]
+image::/images/cdi_icon.png[role="pull-right", width="335"]
 [.smallest]
 ====
 * icon:file-text[] A Java EE spec.
@@ -31,7 +32,7 @@ Java SE is supported by impls and will be at spec level in 2.0
 
 CDI Provides:
 
-image::cdi_logo.png[role="pull-right", width="280"]
+image::/images/cdi_logo.png[role="pull-right", width="280"]
 
 ====
 . A powerful *programming model*
