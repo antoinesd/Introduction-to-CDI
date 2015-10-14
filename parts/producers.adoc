@@ -34,7 +34,7 @@ public class ProducingBean { //<1>
   [highlight]#@Produces# //<2>
   [highlight]#@French# //<3>
   public List<String> FrenchListStrProducer() { //<4>
-     List<String> res = new ArrayList<>().add("bonjour");
+     List<String> res = Arrays.asList("bonjour");
      return res;
   }
 }
