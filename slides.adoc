@@ -29,6 +29,8 @@ Antoine Sabot-Durand
 :dzslides-highlight: github
 :dzslides-transition: fade
 :dzslides-fonts: family=Neuton:400,700,800,400italic|Cedarville+Cursive
+:stylesdir: stylesheets
+:stylesheet: custom.css
 :hide-uri-scheme:
 
 
