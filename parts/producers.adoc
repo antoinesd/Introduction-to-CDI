@@ -57,12 +57,12 @@ public class MyBean {
 
     [highlight]#@Inject#
     [highlight]#@French#
-    private List<String> frenchListStrBean;
+    private List<String> frenchListStrBean;
 
-    [highlight]#@Inject#
-    public MyBean(List<Integer> initValues) {
-       ...
-    }
+    [highlight]#@Inject#
+    public MyBean(List<Integer> initValues) {
+       ...
+    }
 }
 ----
 
@@ -75,7 +75,7 @@ TIP: Disposers can free resources when produced bean is destroyed
 ----
 public class ProducingBean {
 
-    *@Produces*
+    *@Produces*
     public MyNonCDIClass myProducer() {
       return new MyNonCdiClass();
     }

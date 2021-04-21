@@ -18,7 +18,7 @@ public class FirstBean {
 
 public class SecondBean {
     public void listenPost([highlight]*@Observes* Post post) { //<3>
-        System.out.println("Received : " + evt.message());
+        System.out.println("Received : " + evt.message());
     }
 }
 ----

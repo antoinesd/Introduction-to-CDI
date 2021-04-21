@@ -45,11 +45,11 @@ TIP: Parameterized types information is kept (i.e. no type erasure)
 ----
 public class MyBean {
 
-    *@Inject*
+    *@Inject*
     [highlight]#Service<User># userService;
 
     *@Inject*
-    [highlight]#Service<Staff># staffService;    
+    [highlight]#Service<Staff># staffService;
 }
 ----
 

@@ -53,15 +53,15 @@ public @interface Loggable {}
 [highlight]*@Loggable* //<2>
 [highlight]*@Priority(Interceptor.Priority.APPLICATION)* //<3>
 public class LogInterceptor {
-  [highlight]*@AroundInvoke* //<4>
-  public Object log(InvocationContext ic) throws Exception {
-      System.out.println("Entering " + ic.getMethod().getName());
-      try {
-          return ic.proceed();
-      } finally {
-          System.out.println("Exiting " + ic.getMethod().getName());
-      }
-  }
+  [highlight]*@AroundInvoke* //<4>
+  public Object log(InvocationContext ic) throws Exception {
+      System.out.println("Entering " + ic.getMethod().getName());
+      try {
+          return ic.proceed();
+      } finally {
+          System.out.println("Exiting " + ic.getMethod().getName());
+      }
+  }
 }
 ----
 <1> We make the class an interceptor (`@Interceptor` comes from Interceptor spec)
@@ -113,11 +113,11 @@ TIP: It *injects* the decorated *bean* with *`@Delegate`* annotation
 [highlight]*@Priority(Interceptor.Priority.APPLICATION)* //<2>
 public [highlight]*abstract* class HelloDecorator [highlight]*implements HelloService* { //<3>
 
-    _@Inject_ [highlight]*@Delegate* HelloService service; //<4>
+    _@Inject_ [highlight]*@Delegate* HelloService service; //<4>
 
-    public String hello() { //<5>
-        return service.hello() + "-decorated";
-    }
+    public String hello() { //<5>
+        return service.hello() + "-decorated";
+    }
 }
 ----
 <1> Declares that the class is a decorator
