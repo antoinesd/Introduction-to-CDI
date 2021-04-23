@@ -1,5 +1,5 @@
 = Introduction to _CDI_
-Antoine Sabot-Durand
+Antoine Sabot-Durand - Sciam
 :description: Introduction to CDI
 :license: CC BY-SA 4.0
 :license-url: https://creativecommons.org/licenses/by-sa/4.0/
@@ -20,7 +20,7 @@ Antoine Sabot-Durand
 :title-off: title="", caption=""
 :dzslides-aspect: 16-9
 :imagesdir: images
-:slides-url: http://j.mp/introcdi
+:slides-url: http://j.mp/techreview_cdi
 :slides-src: https://github.com/antoinesd/Introduction-to-CDI
 :spec-url: https://cdi-spec.org
 :twitter_handle: antoine_sd
@@ -42,8 +42,8 @@ Antoine Sabot-Durand
 [.smaller]
 ====
 * icon:coffee[] Antoine Sabot-Durand
-* icon:linux[] Red Hat
-* icon:code[] CDI spec lead
+* icon:building[] Sciam
+* icon:code[] CDI 2.0 spec lead
 * icon:twitter[] @antoine_sd
 * icon:rss[] next-presso.com
 * icon:github[] github.com/antoinesd
@@ -64,7 +64,8 @@ TIP: _Slides_ here {slides-url}
 * icon:clock-o[] Programmatic Lookup
 * icon:clock-o[] Contexts
 * icon:clock-o[] Events
-* icon:clock-o[] Interceptors and Decorators
+* icon:clock-o[] Interceptors
+//and Decorators
 * icon:clock-o[] Conclusion
 ====
 
@@ -96,6 +97,8 @@ include::parts/aop.adoc[]
 
 [.topic]
 == Features not covered in this talk
+
+CAUTION: *Decorators* another flavour of Aspect Oriented Programming
 
 CAUTION: *Stereotypes* creating annotation gathering multiple annotations
 

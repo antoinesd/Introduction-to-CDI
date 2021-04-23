@@ -116,3 +116,5 @@ CAUTION: Observer resolution may trigger bean instance creation.
 CAUTION: So observers above are a nice way to initailize bean with its context
 
 //TODO: add slides for observer injection and eventmetadata, transactional events and reception
+////
+

@@ -210,7 +210,7 @@ public class MyBean {
 <1> Unsatisfied injection point: deployment fails
 
 [.topic]
-== Built-in qualifiers
+== Some built-in Qualifiers
 
 TIP: `@Named` set bean name for weak typed environment like front end
 
@@ -218,11 +218,11 @@ TIP: `@Default` added to beans without qualifier or having only `@Named`
 
 TIP: `@Any` added to all beans for programmatic lookup and decorators
 
-TIP: `@Initialized` to qualify events when a context is started
+//TIP: `@Initialized` to qualify events when a context is started
 
-TIP: `@Destroyed` to qualify events when a context is destroyed
+//TIP: `@Destroyed` to qualify events when a context is destroyed
 
-
+////
 [.source]
 == Examples
 
@@ -243,3 +243,5 @@ public class MyBean2 {
 <2> this bean has `@Default`, `@Named` and `@Any` qualifiers
 <3> this bean has `@Language(FRENCH)`, `@Named` and `@Any` qualifiers
 <4> this injection point has `@Default` qualifier
+////
+

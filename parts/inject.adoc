@@ -102,7 +102,7 @@ public class MyBean {
 <1> `@PostConstruct` is called after all injections are done
 <2> `@PreDestroy` is called before destroying the instance
 
-
+////
 [.topic]
 == Other Injection Targets In Java EE
 
@@ -137,4 +137,6 @@ TIP: If multiple beans are eligible for it, the injection point is _ambiguous_
 
 CAUTION: In both case a `DeploymentException` is thrown by the container
 
+
+////
 

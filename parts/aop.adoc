@@ -1,6 +1,10 @@
 [.intro]
-== Interceptors and Decorators
+//== Interceptors and Decorators
 
+== Interceptors
+
+
+////
 [.topic]
 == Interceptors vs Decorators
 
@@ -13,18 +17,26 @@ TIP: *Interceptors* are *bound* to any bean or *bean method*
 TIP: *Decorators* are *business oriented*: change the behaviour of a bean
 
 TIP: *Decorators* are *bound* to a *bean type*
+////
+
 
 [.topic]
 == Interceptors
 
-TIP: *Interceptors* are defined in their *own specification*
+TIP: *Interceptors* are *Aspect Oriented Programming* tools
 
-TIP: User should create an *annotation* as an *interceptor binding*
+TIP: They are *technical oriented*: transaction, security, logging
 
-TIP: *Interceptor class* must be *bound* to an *interceptor binding*
+//TIP: They are *bound* to any bean or *bean method*
+//TIP: *Interceptors* are defined in their *own specification*
 
-TIP: Interceptor class contains *intercepting methods* +
-which are bound to *lifecycle phase* of intercepted bean
+TIP: User should create an *annotation* as an *interceptor binding* +
+and a class to define interception code
+
+TIP: *Interceptor class* must be *bound* to the *interceptor binding*
+
+//TIP: Interceptor class contains *intercepting methods* +
+//which are bound to *lifecycle phase* of intercepted bean
 
 TIP: *Interceptor binding* is added to *intercepted bean* or *method*
 
@@ -90,39 +102,39 @@ public class MyOtherBean {
 <2> This method will be intercepted
 
 
-[.topic]
-== Decorators
-
-TIP: To be decorated, a *bean* should *implement* an *interface*
-
-TIP: The *decorator* has to *implement the same interface*
-
-TIP: It is *declared* with *`@Decorator`* annotation
-
-TIP: It can be an *abstract class* (lets you choose methods to decorate)
-
-TIP: It *injects* the decorated *bean* with *`@Delegate`* annotation
-
-
-[.source]
-== Decorator Example
-
-[source, subs="verbatim,quotes", role="smaller"]
-----
-[highlight]*@Decorator* //<1>
-[highlight]*@Priority(Interceptor.Priority.APPLICATION)* //<2>
-public [highlight]*abstract* class HelloDecorator [highlight]*implements HelloService* { //<3>
-
-    _@Inject_ [highlight]*@Delegate* HelloService service; //<4>
-
-    public String hello() { //<5>
-        return service.hello() + "-decorated";
-    }
-}
-----
-<1> Declares that the class is a decorator
-<2> Activates and gives a priority to the decorator (could be done via `beans.xml` file)
-<3> Decorators can be abstract and should share the same interface than decorated beans
-<4> Decorated bean is annotated with `@Delegate` (other beans could be injected in decorator)
-<5> Decorating method is called instead of decorated bean method. Delegate can be used in it.
-
+//[.topic]
+//== Decorators
+//
+//TIP: To be decorated, a *bean* should *implement* an *interface*
+//
+//TIP: The *decorator* has to *implement the same interface*
+//
+//TIP: It is *declared* with *`@Decorator`* annotation
+//
+//TIP: It can be an *abstract class* (lets you choose methods to decorate)
+//
+//TIP: It *injects* the decorated *bean* with *`@Delegate`* annotation
+//
+//
+//[.source]
+//== Decorator Example
+//
+//[source, subs="verbatim,quotes", role="smaller"]
+//----
+//[highlight]*@Decorator* //<1>
+//[highlight]*@Priority(Interceptor.Priority.APPLICATION)* //<2>
+//public [highlight]*abstract* class HelloDecorator [highlight]*implements HelloService* { //<3>
+//
+//    _@Inject_ [highlight]*@Delegate* HelloService service; //<4>
+//
+//    public String hello() { //<5>
+//        return service.hello() + "-decorated";
+//    }
+//}
+//----
+//<1> Declares that the class is a decorator
+//<2> Activates and gives a priority to the decorator (could be done via `beans.xml` file)
+//<3> Decorators can be abstract and should share the same interface than decorated beans
+//<4> Decorated bean is annotated with `@Delegate` (other beans could be injected in decorator)
+//<5> Decorating method is called instead of decorated bean method. Delegate can be used in it.
+//

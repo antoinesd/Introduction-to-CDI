@@ -28,7 +28,7 @@ TIP: CDI provides the following _built-in_ scopes (and associated contexts):
 * icon:recycle[] `@ApplicationScoped` instance is linked to application lifecycle
 * icon:recycle[] `@SessionScoped` instance is linked to http session lifecycle
 * icon:recycle[] `@RequestScoped` instance is linked to http request lifecycle
-* icon:recycle[] `@ConversationScoped` lifecycle manually controlled within session
+//* icon:recycle[] `@ConversationScoped` lifecycle manually controlled within session
 ====
 
 CAUTION: Instance is _created_ at _first request_ and _destroyed_ with its _bound context_
@@ -57,6 +57,8 @@ public class ApplicationService {
 <3> Bean is `@ApplicationScoped`. Instance is created by application context and will live during all application
 <4> No problem to inject bean from another scope: CDI will provide the right instance
 
+
+////
 [.source]
 == Good to know
 
@@ -69,3 +71,5 @@ TIP: With _SPI_ you can _manually destroy_ an instance in a context
 TIP: A context can be _inactive_ without being destroyed
 
 TIP: _Request context_ is _more_ than a mapping to `ServletRequest` lifecycle
+////
+
