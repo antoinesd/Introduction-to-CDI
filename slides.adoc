@@ -20,7 +20,7 @@ Antoine Sabot-Durand - Sciam
 :title-off: title="", caption=""
 :dzslides-aspect: 16-9
 :imagesdir: images
-:slides-url: http://j.mp/techreview_cdi
+:slides-url: http://bit.ly/techreview_cdi
 :slides-src: https://github.com/antoinesd/Introduction-to-CDI
 :spec-url: https://cdi-spec.org
 :twitter_handle: antoine_sd
