@@ -5,18 +5,18 @@ Contexts and Dependency Injection
 
 [.topic]
 == What is CDI?
-image::cdi_icon.png[role="pull-right", width="335"]
+image::cdi_icon.png[role="pull-right", width="300"]
 [.smallest]
 ====
-* icon:file-text[] A Java EE spec.
-* icon:code-fork[] ASL2 (even TCK)
-* icon:rocket[] Launched in Java EE 6
-* icon:history[] 2 releases since launch
-* icon:thumb-tack[] 1.2 is last (Java EE 7)
-* icon:road[] 2.0 on its way
+* icon:file-text[] A Jakarta EE spec
+* icon:history[] 3.0 is last (Jakarta EE 9)
+* icon:road[] 4.0 on its way
+* icon:code-fork[] Programming model of:
+** icon:check[] MicroProfile
+** icon:check[] Quarkus
 * icon:wrench[] 2 major impl.
 ** icon:check[] JBoss Weld (RI)
-** icon:check[]Apache OpenWebBeans
+** icon:check[] Apache OpenWebBeans
 ====
 
 [NOTE.speaker]
@@ -71,3 +71,60 @@ CAUTION: Yet, you'll never see it (except in advanced development)
 ____
 Container is your application's invisible conductor
 ____
+
+[.topic]
+== DI explained to your granny 1/3
+
+
+TIP: Dependency Injection delegates to a *container*/*injector*/*manager*...
+
+TIP: ...the *creation* (and *disposal*) of classes' instances...
+
+TIP: ...and the *assignment* of these instances to *fields* or *parameters*...
+
+TIP: ...in consuming code.
+
+[quote,role="smallest"]
+____
+DI is a *design pattern*
+____
+
+[.topic]
+== DI explained to your granny 2/3
+
+TIP: Without DI
+
+[source, subs="verbatim,quotes"]
+----
+public class EnglishHelloService implements HelloService {
+    public String hello() {
+        return "Hello World!";
+    }
+}
+
+public class MyBean {
+    private HelloService service = *new EnglishHelloService()*; //<1>
+}
+----
+<1> instantiation and assignment is done in code
+
+[.topic]
+== DI explained to your granny 3/3
+
+TIP: With DI
+
+[source, subs="verbatim,quotes"]
+----
+public class EnglishHelloService implements HelloService {
+    public String hello() {
+        return "Hello World!";
+    }
+}
+
+public class MyBean {
+
+    [highlight]#@Inject# //<1>
+    private HelloService service;
+}
+----
+<1> instantiation and assignment is done by the container

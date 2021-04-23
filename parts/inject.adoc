@@ -6,7 +6,7 @@
 
 TIP: During boot time, the container scans each class to check if it meets the conditions to be a bean
 
-TIP: These conditions are very loose so, most _pojo_ classes are beans
+TIP: These conditions are very loose so, almost all classes are beans
 
 [source, subs="verbatim,quotes"]
 ----
@@ -39,12 +39,12 @@ public class MyBean {
 }
 ----
 <1> `@Inject` annotation defines an _injection point_ (here a field)
-<2> The container looksa for the bean to inject by its _type_ (here `HelloService`)
+<2> The container looks for the bean to inject by its _type_ (here `HelloService`)
 
 [.topic]
 == Injection in bean constructor
 
-CAUTION: To become a bean a class must have a constructor with no parameters or a constructor annotated `@Inject`
+CAUTION: To become a bean, a class must have a constructor with no parameters, or a constructor annotated `@Inject`
 
 [source, subs="verbatim,quotes"]
 ----
@@ -82,9 +82,9 @@ public class MyBean {
 TIP: all initializer methods are called at bean instantiation
 
 [.topic]
-== One more thing...
+== One more thing
 
-TIP: A bean support standard lifecycle callbacks
+TIP: A bean supports standard lifecycle callbacks
 
 [source, subs="verbatim,quotes"]
 ----
