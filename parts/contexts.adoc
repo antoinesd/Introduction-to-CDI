@@ -24,10 +24,10 @@ TIP: CDI provides the following _built-in_ scopes (and associated contexts):
 
 [.fartoosmall]
 ====
-* icon:recycle[] `@Dependent` (default) bean has the same scope than its injector
+* icon:recycle[] `@Dependent` (default) bean has the same scope as its injector
 * icon:recycle[] `@ApplicationScoped` instance is linked to application lifecycle
 * icon:recycle[] `@SessionScoped` instance is linked to http session lifecycle
-* icon:recycle[] `@RequestScoped` instance is liked to http request lifecycle
+* icon:recycle[] `@RequestScoped` instance is linked to http request lifecycle
 * icon:recycle[] `@ConversationScoped` lifecycle manually controlled within session
 ====
 
@@ -55,7 +55,7 @@ public class ApplicationService {
 <1> Bean has default scope `@Dependent`, instances are created for each injection
 <2> Bean is `@RequestScoped`. Instance is created by request context and destroyed with request context
 <3> Bean is `@ApplicationScoped`. Instance is created by application context and will live during all application
-<4> No problem to inject bean from an other scope: CDI will provide the right bean
+<4> No problem to inject bean from another scope: CDI will provide the right instance
 
 [.source]
 == Good to know

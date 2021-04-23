@@ -50,6 +50,45 @@ public class SecondBean {
 <1> These observers will be triggered (empty subset is accepted for qualifiers when resolving observers)
 <2> This observer won't be triggered
 
+[.topic]
+== Async Events 1/2
+
+[source, subs="verbatim,quotes"]
+----
+@ApplicationScoped
+public class MyBean {
+
+    @Inject
+    Event<Post> event; //<1>
+
+    public void someEvenMoreCriticalBusinessMethod() {
+        event.fireAsync(new Post()); //<2>
+    }
+}
+----
+<1> We still inject the `Event` built-in bean
+<2> Here we call `fireAsync` in a call and forget pattern (do nothing with `CompletionStage`)
+
+[.topic]
+== Async Events 2/2
+
+TIP: On consumer side, we use an async observer : `@ObservesAsync`
+
+[source, subs="verbatim,quotes"]
+----
+@ApplicationScoped
+public class MyOtherBean {
+
+    public void callMe([highlight]#*@ObservesAsync*# Post myPost) { //<1>
+        // I am called in another thread
+    }
+
+}
+----
+<1> this observer will be invoked asynchronously
+
+
+////
 [.source]
 == Hooking on context lifecycle with events
 

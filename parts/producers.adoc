@@ -45,7 +45,7 @@ public class ProducingBean { //<1>
 <4> value of field or method returned value is the bean instance
 
 [.topic]
-== Producers are an other kind of bean
+== Producers are another kind of bean
 
 TIP: they can have qualifiers like any other bean
 

@@ -9,7 +9,7 @@ Putting the right a bean at the right place
 
 TIP: A bean has a set of types depending on its definition
 
-TIP: Bean types set for a managed bean contains the bean class, every superclass and all interfaces it implements directly or indirectly.
+TIP: Bean types set for a bean contains the bean class, every superclass and all interfaces it implements.
 
 TIP: Bean types can be restricted by using `@Typed` annotation (`Object` is always in the set)
 
@@ -26,10 +26,10 @@ public class MyBean { //<1>
     public HelloService prodHelloService() { ... } //<2>
 }
 
-  public class FrHelloService extends GenericService<String> implements HelloService { ... } //<3>
+public class FrHelloService extends GenericService<String> implements HelloService { ... } //<3>
 
-  [highlight]*@Typed({HelloService.class})*
- public class FrHelloService extends GenericService<String> implements HelloService { ... } //<4>
+[highlight]*@Typed({HelloService.class})*
+public class FrHelloService extends GenericService<String> implements HelloService { ... } //<4>
 ----
 <1> class `MyBean` and `Object`
 <2> `HelloService`, `Hello` and `Object`

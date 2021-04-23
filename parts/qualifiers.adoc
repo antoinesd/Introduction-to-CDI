@@ -30,7 +30,7 @@ public class EnglishHelloService implements [highlight]*HelloService* {
 }
 ----
 
-CAUTION: deployment fails with an `Ambiguous dependencies` error.
+CAUTION: deployment fails with an `Ambiguous dependency` exception.
 
 [.topic]
 == The solution is to create Qualifiers…
@@ -53,7 +53,7 @@ public @interface English {
 TIP: Qualifiers are annotations annotated with `@Qualifier`
 
 [.topic]
-== to qualify beans sharing the same type...
+== ...to qualify beans sharing the same type...
 
 [source, subs="verbatim,quotes"]
 ----
@@ -73,7 +73,7 @@ public class EnglishHelloService implements HelloService {
 ----
 
 [.topic]
-== and distinguish them at injection points.
+== ...and distinguish them at injection points.
 
 [source, subs="verbatim,quotes"]
 ----
@@ -114,7 +114,7 @@ public @interface Language {
 <1> `@Nonbinding` member's value isn't used in bean resolution mechanism
 
 [.source]
-== Binding members limit the number of annotations to add to your code
+== Binding members can limit the number of annotations required
 
 [source, subs="verbatim,quotes", role="smaller"]
 ----
@@ -212,7 +212,7 @@ public class MyBean {
 [.topic]
 == Built-in qualifiers
 
-TIP: `@Named` set bean name for weak typed environment (EL, Javascript)
+TIP: `@Named` set bean name for weak typed environment like front end
 
 TIP: `@Default` added to beans without qualifier or having only `@Named`
 
